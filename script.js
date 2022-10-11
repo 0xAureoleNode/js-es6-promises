@@ -71,14 +71,57 @@
 //   });
 
 // Promise Chain Rule # 4
-let promise = new Promise(function (resolve, reject) {
-  resolve('Testing Finally.');
-});
-// no argument
-promise
-  .finally(function () {
-    console.log('Running .finally()');
-  })
-  .then(function (value) {
-    console.log(5);
-  });
+// let promise = new Promise(function (resolve, reject) {
+//   resolve('Testing Finally.');
+// });
+// // no argument
+// promise
+//   .finally(function () {
+//     console.log('Running .finally()');
+//   })
+//   .then(function (value) {
+//     console.log(5);
+//   });
+
+// Promise Chain Rule # 5
+// No - Chain
+// let promise = new Promise(function (resolve, reject) {
+//   resolve(10);
+// });
+// // they don't pass down any result to other .then()methods
+// // 这三个里面是同步发生的，所以唯一print的是最后一个
+// promise.then(function (value) {
+//   value++;
+//   return value;
+// });
+
+// promise.then(function (value) {
+//   value = value + 10;
+//   return value;
+// });
+
+// promise.then(function (value) {
+//   value = value + 20;
+//   console.log(value);
+//   return value;
+// });
+
+// on-chain
+// let promise = new Promise(function (resolve, reject) {
+//   resolve(10);
+// });
+
+// promise
+//   .then(function (value) {
+//     value++;
+//     return value;
+//   })
+//   .then(function (value) {
+//     value = value + 10;
+//     return value;
+//   })
+//   .then(function (value) {
+//     value = value + 20;
+//     console.log(value);
+//     return value;
+//   });
