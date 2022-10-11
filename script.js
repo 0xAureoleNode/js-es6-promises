@@ -51,21 +51,34 @@
 //   });
 
 // Promise Chain Rule # 3
-var promise = new Promise(function (resolve, reject) {
-  reject(401);
-});
+// var promise = new Promise(function (resolve, reject) {
+//   reject(401);
+// });
 
+// promise
+//   .catch(function (error) {
+//     if (error === 401) {
+//       console.log('Rethrowing the 401');
+//       throw error;
+//     } else {
+//     }
+//   })
+//   .then(function (value) {
+//     console.log(value);
+//   })
+//   .catch(function (error) {
+//     console.log(`handling ${error} here`);
+//   });
+
+// Promise Chain Rule # 4
+let promise = new Promise(function (resolve, reject) {
+  resolve('Testing Finally.');
+});
+// no argument
 promise
-  .catch(function (error) {
-    if (error === 401) {
-      console.log('Rethrowing the 401');
-      throw error;
-    } else {
-    }
+  .finally(function () {
+    console.log('Running .finally()');
   })
   .then(function (value) {
-    console.log(value);
-  })
-  .catch(function (error) {
-    console.log(`handling ${error} here`);
+    console.log(5);
   });
