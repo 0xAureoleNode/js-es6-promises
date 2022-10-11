@@ -49,3 +49,23 @@
 //   .catch(function (error) {
 //     console.error(error);
 //   });
+
+// Promise Chain Rule # 3
+var promise = new Promise(function (resolve, reject) {
+  reject(401);
+});
+
+promise
+  .catch(function (error) {
+    if (error === 401) {
+      console.log('Rethrowing the 401');
+      throw error;
+    } else {
+    }
+  })
+  .then(function (value) {
+    console.log(value);
+  })
+  .catch(function (error) {
+    console.log(`handling ${error} here`);
+  });
